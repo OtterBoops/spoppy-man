@@ -1,0 +1,13 @@
+{
+  "tailwindCSS.includeLanguages": {
+    "css": "tailwindcss",
+    "scss": "tailwindcss",
+    "postcss": "tailwindcss"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
+}

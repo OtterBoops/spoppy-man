@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "FanaticPythoner.better-todo-tree",
+    "dbaeumer.vscode-eslint",
+    "formulahendry.auto-rename-tag",
+    "ms-azuretools.vscode-docker"
+  ]
+}
