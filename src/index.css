@@ -8,7 +8,7 @@
 }
 
 :root {
-  @apply font-monserrat;
+  @apply box-border h-screen w-screen overflow-hidden font-monserrat;
 
   letter-spacing: 0.18px;
   font-synthesis: none;
@@ -17,18 +17,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  @apply m-0 p-0;
-}
-
-#root {
-  @apply m-0 box-border flex min-h-svh max-w-full flex-col text-center;
-}
-
 * {
   @apply border border-solid border-red-600;
 }
 
 button {
   @apply w-fit cursor-pointer bg-amber-200;
+}
+
+#root {
+  @apply flex h-dvh w-dvw grow flex-col;
 }
