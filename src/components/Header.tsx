@@ -1,12 +1,23 @@
-export const Header = (props: {
-  displayName?: string;
-  profilePicture?: string;
-}) => {
+import Button from "./Button";
+import { logoutClick, authState } from "../services/auth";
+import { getUserDisplayName, getUserProfileImage } from "../services/api";
+
+export const Header = () => {
   return (
-    <header class="flex flex-col items-center gap-4 p-4">
-      <h1 class="text-3xl font-bold">Sample Header</h1>
-      <p class="text-lg">{props.displayName || "Guest"}</p>
-      <img src={props.profilePicture || ""} alt="Profile Picture" />
+    <header class="flex items-center justify-evenly">
+      <p class="text-lg">{getUserDisplayName() || "Guest"}</p>
+
+      <img
+        src={getUserProfileImage() || ""}
+        alt="Profile"
+        class="aspect-square max-h-20 rounded-full"
+      />
+
+      <Button
+        text="Logout"
+        onClick={logoutClick}
+        visible={authState.isLoggedIn()}
+      />
     </header>
   );
 };
