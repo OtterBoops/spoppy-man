@@ -3,7 +3,9 @@ import { createSignal } from "solid-js";
 import { logoutClick, authState } from "./auth";
 
 const [profile, setProfile] = createSignal<any>(null);
-export { profile };
+const [playlists, setPlaylists] = createSignal<any[]>([]);
+
+export { profile, playlists };
 
 // Create a pre-configured ky instance
 export const api = ky.create({
@@ -22,6 +24,7 @@ export const api = ky.create({
         if (response.status === 401) {
           logoutClick();
         }
+
         return response;
       },
     ],
@@ -33,6 +36,12 @@ export const fetchAndStoreProfile = async () => {
   setProfile(data);
 };
 
+export const fetchAndStorePlaylists = async () => {
+  const data: any = await api.get("me/playlists").json();
+  setPlaylists(data.items || []);
+};
+
 export const getUserDisplayName = () => profile()?.display_name ?? "";
 export const getUserEmail = () => profile()?.email ?? "";
 export const getUserProfileImage = () => profile()?.images?.[0]?.url ?? "";
+export const getPlaylists = () => playlists();

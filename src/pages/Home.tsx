@@ -1,6 +1,10 @@
-import { onMount } from "solid-js";
+import { onMount, For } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import { fetchAndStoreProfile } from "../services/api";
+import {
+  fetchAndStorePlaylists,
+  fetchAndStoreProfile,
+  getPlaylists,
+} from "../services/api";
 import { authState } from "../services/auth";
 
 export const Home = () => {
@@ -12,11 +16,18 @@ export const Home = () => {
     }
 
     await fetchAndStoreProfile();
+    await fetchAndStorePlaylists();
   });
 
   return (
     <section>
-      <h1>Home</h1>
+      <For each={getPlaylists()}>
+        {(playlist) => (
+          <div>
+            <p>{playlist.name}</p>
+          </div>
+        )}
+      </For>
     </section>
   );
 };
