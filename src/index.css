@@ -25,6 +25,11 @@ button {
   @apply w-fit cursor-pointer bg-amber-200;
 }
 
+html,
+body {
+  @apply max-h-full max-w-full;
+}
+
 #root {
-  @apply flex h-dvh w-dvw grow flex-col;
+  @apply flex h-dvh max-h-dvh w-dvw max-w-dvw grow flex-col;
 }
