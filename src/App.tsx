@@ -11,6 +11,19 @@ import { setRateLimited } from "./services/api";
 
 export const App = () => {
   onMount(() => {
+    const redirectUri = import.meta.env.VITE_SPOTIFY_REDIRECT_URI;
+    if (redirectUri) {
+      try {
+        const redirectOrigin = new URL(redirectUri).origin;
+        if (window.location.origin !== redirectOrigin) {
+          window.location.href = redirectOrigin + window.location.pathname + window.location.search;
+          return;
+        }
+      } catch (e) {
+        console.error("Invalid VITE_SPOTIFY_REDIRECT_URI:", e);
+      }
+    }
+
     if (localStorage.getItem("rateLimited")) 
       setRateLimited(localStorage.getItem("rateLimited") === "true");
     }); 
