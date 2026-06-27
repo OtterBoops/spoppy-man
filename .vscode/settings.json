@@ -9,5 +9,6 @@
     "other": true,
     "comments": false,
     "strings": true
-  }
+  },
+  "css.lint.unknownAtRules": "ignore"
 }
