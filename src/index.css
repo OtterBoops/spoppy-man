@@ -1,14 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-monserrat: "Montserrat", system-ui, "Segoe UI", Roboto, sans-serif;
   --font-dm-sans: "DM Sans", system-ui, "Segoe UI";
+
+  /* Rosé Pine Moon color palette */
+  --color-app-base: #232136;
+  --color-surface: #2a273f;
+  --color-overlay: #393552;
+  --color-muted: #6e6a86;
+  --color-subtle: #908caa;
+  --color-text: #e0def4;
+  --color-love: #eb6f92;
+  --color-gold: #f6c177;
+  --color-rose: #ea9a97;
+  --color-pine: #3e8fb0;
+  --color-foam: #9ccfd8;
+  --color-iris: #c4a7e7;
+  --color-highlight-low: #21202e;
+  --color-highlight-med: #403d52;
+  --color-highlight-high: #524f67;
 }
 
 :root {
-  @apply box-border h-screen w-screen overflow-hidden font-monserrat;
+  @apply box-border h-screen w-screen overflow-hidden font-monserrat bg-app-base text-text;
 
   letter-spacing: 0.18px;
   font-synthesis: none;
@@ -17,19 +33,52 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  @apply border border-solid border-red-600;
-}
-
 button {
-  @apply w-fit cursor-pointer bg-amber-200;
+  @apply cursor-pointer transition-all duration-200;
 }
 
 html,
 body {
-  @apply max-h-full max-w-full;
+  @apply max-h-full max-w-full bg-app-base text-text;
 }
 
 #root {
-  @apply flex h-dvh max-h-dvh w-dvw max-w-dvw grow flex-col;
+  @apply flex h-dvh max-h-dvh w-dvw max-w-dvw grow flex-col bg-app-base text-text;
 }
+
+/* Custom premium scrollbar for containers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-surface);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-overlay);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-highlight-med);
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+

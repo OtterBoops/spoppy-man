@@ -4,7 +4,10 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  plugins: [ tailwindcss(), solid() ],
+  plugins: [
+    tailwindcss(),
+    solid(),
+  ],
   server: {
     allowedHosts: ["*spotify.com"],
   },

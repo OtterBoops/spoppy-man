@@ -9,8 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.3.0",
+    "@fortawesome/free-brands-svg-icons": "^7.3.0",
+    "@fortawesome/free-solid-svg-icons": "^7.3.0",
     "@solidjs/router": "^0.16.1",
     "@tailwindcss/vite": "^4.3.0",
+    "@thisbeyond/solid-dnd": "^0.7.5",
     "ky": "^2.0.2",
     "solid-js": "^1.9.12",
     "tailwindcss": "^4.3.0"
